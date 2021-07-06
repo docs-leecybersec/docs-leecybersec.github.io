@@ -1,0 +1,2245 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
+    
+    
+      
+        <title>Terminal - LeeCyberSec</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#terminal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="LeeCyberSec" class="md-header__button md-logo" aria-label="LeeCyberSec" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LeeCyberSec
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Terminal
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        Red Teaming
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../penetration-testing/index.html" class="md-tabs__link">
+        Penetration Testing
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../walkthrough/index.html" class="md-tabs__link">
+        Walkthrough
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blue-teaming/index.html" class="md-tabs__link">
+        Blue Teaming
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../about/index.html" class="md-tabs__link">
+      About Me
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="LeeCyberSec" class="md-nav__button md-logo" aria-label="LeeCyberSec" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    LeeCyberSec
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Red Teaming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Red Teaming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Red Teaming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        Unix System
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Unix System" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Unix System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="filesystem.html" class="md-nav__link">
+        Filesystem
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="commands.html" class="md-nav__link">
+        Commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="services.html" class="md-nav__link">
+        Services
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scripting.html" class="md-nav__link">
+        Scripting
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Terminal
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="terminal.html" class="md-nav__link md-nav__link--active">
+        Terminal
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bash-environment" class="md-nav__link">
+    Bash Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Bash Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-an-environment-variable" class="md-nav__link">
+    Set an environment variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-environment-variables" class="md-nav__link">
+    All environment variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History
+  </a>
+  
+    <nav class="md-nav" aria-label="History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#re-run-the-first-command" class="md-nav__link">
+    Re-run the first command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeats-the-last-command" class="md-nav__link">
+    Repeats the last command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-terminal" class="md-nav__link">
+    Edit terminal
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../antivirus-evasion/index.html" class="md-nav__link">
+        Antivirus Evasion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        Exploit Development
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Exploit Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Exploit Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exploit-dev/buffer-overflow/index.html" class="md-nav__link">
+        Buffer Overflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exploit-dev/metasploit-framework/index.html" class="md-nav__link">
+        Metasploit Framework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exploit-dev/nse-script/index.html" class="md-nav__link">
+        Nmap Scripting Engine
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../malware-development/index.html" class="md-nav__link">
+        Malware development
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../powershell-empire/index.html" class="md-nav__link">
+        Powershell Empire
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Penetration Testing
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Penetration Testing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Penetration Testing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        External & Internal
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="External & Internal" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          External & Internal
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_1" type="checkbox" id="__nav_3_2_1" >
+      
+      <label class="md-nav__link" for="__nav_3_2_1">
+        Reconnaissance
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reconnaissance" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Reconnaissance
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/reconnaissance/infor-gathering.html" class="md-nav__link">
+        Info Gathering
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/reconnaissance/active-scanning.html" class="md-nav__link">
+        Active Scanning
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_2" type="checkbox" id="__nav_3_2_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2_2">
+        Common Services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Common Services" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Common Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/general.html" class="md-nav__link">
+        general
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/ftp-21.html" class="md-nav__link">
+        ftp 21
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/smtp-25.html" class="md-nav__link">
+        smtp 25
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/dns-53.html" class="md-nav__link">
+        dns 53
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/pop3-110.html" class="md-nav__link">
+        pop3 110
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/nfs-111.html" class="md-nav__link">
+        nfs 111
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/smb-139-445.html" class="md-nav__link">
+        smb 139,445
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/snmp-161.html" class="md-nav__link">
+        snmp 161
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/mssql-1443.html" class="md-nav__link">
+        mssql 1443
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/mysql-3306.html" class="md-nav__link">
+        mysql 3306
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/postgresql-5432.html" class="md-nav__link">
+        postgresql 5432
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/common-services/mongodb-27017.html" class="md-nav__link">
+        mongodb 27017
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3" type="checkbox" id="__nav_3_2_3" >
+      
+      <label class="md-nav__link" for="__nav_3_2_3">
+        Remote Exploitation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Remote Exploitation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Remote Exploitation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/remote-exploitation/Unix%26Linux.html" class="md-nav__link">
+        Unix&Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/remote-exploitation/windows.html" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/file-transfer/index.html" class="md-nav__link">
+        File Transfer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/password-attack/index.html" class="md-nav__link">
+        Password Attack
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/port-redirection-tunneling/index.html" class="md-nav__link">
+        Redirec & Tunnel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_7" type="checkbox" id="__nav_3_2_7" >
+      
+      <label class="md-nav__link" for="__nav_3_2_7">
+        Privilege Escalation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Privilege Escalation" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Privilege Escalation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/privilege-escalation/local-enum/Unix%26Linux.html" class="md-nav__link">
+        Unix Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/privilege-escalation/common-escal/Unix%26Linux.html" class="md-nav__link">
+        Unix Escalation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/privilege-escalation/local-enum/Windows.html" class="md-nav__link">
+        Windows Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/external-internal/privilege-escalation/common-escal/Windows.html" class="md-nav__link">
+        Windows Escalation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        Active Directory
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Active Directory" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Active Directory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/active-directory/enumeration.html" class="md-nav__link">
+        Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/active-directory/authentication.html" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/active-directory/lateral-movement.html" class="md-nav__link">
+        Lateral Movement
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/active-directory/persistent.html" class="md-nav__link">
+        Persistent
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        Web Application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Application" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Web Application
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/web-application/enumeration.html" class="md-nav__link">
+        Enumeration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/web-application/exploitation.html" class="md-nav__link">
+        Exploitation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/mobile-application/index.html" class="md-nav__link">
+        Moble Application
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/wireless-rfid/index.html" class="md-nav__link">
+        Wireless & RFID
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../penetration-testing/social-engineering/index.html" class="md-nav__link">
+        Social Engineering
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Walkthrough
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Walkthrough" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Walkthrough
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      <label class="md-nav__link" for="__nav_4_2">
+        Hack The Box
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hack The Box" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Hack The Box
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Lame/index.html" class="md-nav__link">
+        HTB Lame
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Legacy/index.html" class="md-nav__link">
+        HTB Legacy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Devel/index.html" class="md-nav__link">
+        HTB Devel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Popcorn/index.html" class="md-nav__link">
+        HTB Popcorn
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Beep/index.html" class="md-nav__link">
+        HTB Beep
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Optimum/index.html" class="md-nav__link">
+        HTB Optimum
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Bastard/index.html" class="md-nav__link">
+        HTB Bastard
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Cronos/index.html" class="md-nav__link">
+        HTB Cronos
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Blue/index.html" class="md-nav__link">
+        HTB Blue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Nineveh/index.html" class="md-nav__link">
+        HTB Nineveh
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Shocker/index.html" class="md-nav__link">
+        HTB Shocker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Bashed/index.html" class="md-nav__link">
+        HTB Bashed
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Nibbles/index.html" class="md-nav__link">
+        HTB Nibbles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Jerry/index.html" class="md-nav__link">
+        HTB Jerry
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Bastion/index.html" class="md-nav__link">
+        HTB Bastion
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Tabby/index.html" class="md-nav__link">
+        HTB Tabby
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/ServMon/index.html" class="md-nav__link">
+        HTB ServMon
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Canape/index.html" class="md-nav__link">
+        HTB Canape
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/hackthebox/Help/index.html" class="md-nav__link">
+        HTB Help
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        TryHackMe
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TryHackMe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          TryHackMe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/tryhackme/MrRobot/index.html" class="md-nav__link">
+        Mr Robot
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/tryhackme/Thompson/index.html" class="md-nav__link">
+        Thompson
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/tryhackme/Kenobi/index.html" class="md-nav__link">
+        Kenobi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/tryhackme/Ignite/index.html" class="md-nav__link">
+        Ignite
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/tryhackme/SteelMountain/index.html" class="md-nav__link">
+        Steel Mountain
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/tryhackme/HackPark/index.html" class="md-nav__link">
+        HackPark
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      <label class="md-nav__link" for="__nav_4_4">
+        VulnHub
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="VulnHub" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          VulnHub
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/vulnhub/Brainpan-1/index.html" class="md-nav__link">
+        Brainpan 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/vulnhub/S2-052/index.html" class="md-nav__link">
+        Pentester Lab: S2-052
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/vulnhub/SolidState-1/index.html" class="md-nav__link">
+        SolidState: 1
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/vulnhub/Wintermute-1-Straylight/index.html" class="md-nav__link">
+        Wintermute: 1 (Straylight)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthrough/vulnhub/Wintermute-1-Neuromancer/index.html" class="md-nav__link">
+        Wintermute: 1 (Neuromancer)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Blue Teaming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Blue Teaming" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Blue Teaming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blue-teaming/index.html" class="md-nav__link">
+        __index__
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.blueteamsacademy.com" class="md-nav__link">
+        Blue Team Training
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/index.html" class="md-nav__link">
+        About Me
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bash-environment" class="md-nav__link">
+    Bash Environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Bash Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-an-environment-variable" class="md-nav__link">
+    Set an environment variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-environment-variables" class="md-nav__link">
+    All environment variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History
+  </a>
+  
+    <nav class="md-nav" aria-label="History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#re-run-the-first-command" class="md-nav__link">
+    Re-run the first command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeats-the-last-command" class="md-nav__link">
+    Repeats the last command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-terminal" class="md-nav__link">
+    Edit terminal
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="terminal">Terminal</h1>
+<h2 id="bash-environment">Bash Environment</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="nv">$PATH</span>
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</code></pre></div>
+<h3 id="set-an-environment-variable">Set an environment variable</h3>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ip</span><span class="o">=</span><span class="m">192</span>.168.11.131
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ping <span class="nv">$ip</span>
+nmap <span class="nv">$ip</span>
+</code></pre></div>
+<h3 id="all-environment-variables">All environment variables</h3>
+<div class="highlight"><pre><span></span><code>env
+</code></pre></div>
+<h2 id="history">History</h2>
+<h3 id="re-run-the-first-command">Re-run the first command</h3>
+<div class="highlight"><pre><span></span><code>!1
+</code></pre></div>
+<h3 id="repeats-the-last-command">Repeats the last command</h3>
+<div class="highlight"><pre><span></span><code>!!
+</code></pre></div>
+<h2 id="edit-terminal">Edit terminal</h2>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Manual</label><div class="tabbed-content">
+<p>Alias</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">cpu</span><span class="o">=</span><span class="s2">&quot;grep &#39;cpu &#39; /proc/stat | awk &#39;{usage=(\$2+\$4)*100/(\$2+\$4+\$5)} END {print usage}&#39; | awk &#39;{printf(\&quot;%.1f\n\&quot;, \$1)}&#39;&quot;</span>
+<span class="nb">alias</span> <span class="nv">ram</span><span class="o">=</span><span class="s2">&quot;free | grep Mem | awk &#39;{print \$3/\$2 * 100.0}&#39; | awk &#39;{printf(\&quot;%.1f\n\&quot;, \$1)}&#39;&quot;</span>
+<span class="nb">alias</span> <span class="nv">myip</span><span class="o">=</span><span class="s1">&#39;ip add | grep &quot;inet &quot; | grep -v &quot;127.0.0.1&quot; | cut -d&quot;/&quot; -f1 | cut -d &quot; &quot; -f 6 | tail -1&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nv">PROMPT</span><span class="o">=</span><span class="s1">$&#39;%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}(%B%F{%(#.red.blue)}Hades%(#.💀.㉿)%b$(myip)%F{%(#.blue.green)})-[$(cpu):$(ram)]%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} &#39;</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">.zshrc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.zshrc file for zsh interactive shells.</span>
+<span class="c1"># see /usr/share/doc/zsh/examples/zshrc for examples</span>
+
+setopt autocd              <span class="c1"># change directory just by typing its name</span>
+<span class="c1">#setopt correct            # auto correct mistakes</span>
+setopt interactivecomments <span class="c1"># allow comments in interactive mode</span>
+setopt magicequalsubst     <span class="c1"># enable filename expansion for arguments of the form ‘anything=expression’</span>
+setopt nonomatch           <span class="c1"># hide error message if there is no match for the pattern</span>
+setopt notify              <span class="c1"># report the status of background jobs immediately</span>
+setopt numericglobsort     <span class="c1"># sort filenames numerically when it makes sense</span>
+setopt promptsubst         <span class="c1"># enable command substitution in prompt</span>
+
+<span class="nv">WORDCHARS</span><span class="o">=</span><span class="si">${</span><span class="nv">WORDCHARS</span><span class="p">//</span><span class="se">\/</span><span class="si">}</span> <span class="c1"># Don&#39;t consider certain characters part of the word</span>
+
+<span class="c1"># hide EOL sign (&#39;%&#39;)</span>
+<span class="nv">PROMPT_EOL_MARK</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+
+<span class="c1"># configure key keybindings</span>
+bindkey -e                                        <span class="c1"># emacs key bindings</span>
+bindkey <span class="s1">&#39; &#39;</span> magic-space                           <span class="c1"># do history expansion on space</span>
+bindkey <span class="s1">&#39;^[[3;5~&#39;</span> kill-word                       <span class="c1"># ctrl + Supr</span>
+bindkey <span class="s1">&#39;^[[3~&#39;</span> delete-char                       <span class="c1"># delete</span>
+bindkey <span class="s1">&#39;^[[1;5C&#39;</span> forward-word                    <span class="c1"># ctrl + -&gt;</span>
+bindkey <span class="s1">&#39;^[[1;5D&#39;</span> backward-word                   <span class="c1"># ctrl + &lt;-</span>
+bindkey <span class="s1">&#39;^[[5~&#39;</span> beginning-of-buffer-or-history    <span class="c1"># page up</span>
+bindkey <span class="s1">&#39;^[[6~&#39;</span> end-of-buffer-or-history          <span class="c1"># page down</span>
+bindkey <span class="s1">&#39;^[[H&#39;</span> beginning-of-line                  <span class="c1"># home</span>
+bindkey <span class="s1">&#39;^[[F&#39;</span> end-of-line                        <span class="c1"># end</span>
+bindkey <span class="s1">&#39;^[[Z&#39;</span> undo                               <span class="c1"># shift + tab undo last action</span>
+
+<span class="c1"># enable completion features</span>
+autoload -Uz compinit
+compinit -d ~/.cache/zcompdump
+zstyle <span class="s1">&#39;:completion:*:*:*:*:*&#39;</span> menu <span class="k">select</span>
+zstyle <span class="s1">&#39;:completion:*&#39;</span> matcher-list <span class="s1">&#39;m:{a-zA-Z}={A-Za-z}&#39;</span> <span class="c1"># case insensitive tab completion</span>
+
+<span class="c1"># History configurations</span>
+<span class="nv">HISTFILE</span><span class="o">=</span>~/.zsh_history
+<span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">1000</span>
+<span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">2000</span>
+setopt hist_expire_dups_first <span class="c1"># delete duplicates first when HISTFILE size exceeds HISTSIZE</span>
+setopt hist_ignore_dups       <span class="c1"># ignore duplicated commands history list</span>
+setopt hist_ignore_space      <span class="c1"># ignore commands that start with space</span>
+setopt hist_verify            <span class="c1"># show command with history expansion to user before running it</span>
+<span class="c1">#setopt share_history         # share command history data</span>
+
+<span class="c1"># force zsh to show the complete history</span>
+<span class="nb">alias</span> <span class="nv">history</span><span class="o">=</span><span class="s2">&quot;history 0&quot;</span>
+
+<span class="c1"># make less more friendly for non-text input files, see lesspipe(1)</span>
+<span class="c1">#[ -x /usr/bin/lesspipe ] &amp;&amp; eval &quot;$(SHELL=/bin/sh lesspipe)&quot;</span>
+
+<span class="c1"># set variable identifying the chroot you work in (used in the prompt below)</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="si">${</span><span class="nv">debian_chroot</span><span class="k">:-</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> -r /etc/debian_chroot <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">debian_chroot</span><span class="o">=</span><span class="k">$(</span>cat /etc/debian_chroot<span class="k">)</span>
+<span class="k">fi</span>
+
+<span class="c1"># set a fancy prompt (non-color, unless we know we &quot;want&quot; color)</span>
+<span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$TERM</span><span class="s2">&quot;</span> <span class="k">in</span>
+    xterm-color<span class="p">|</span>*-256color<span class="o">)</span> <span class="nv">color_prompt</span><span class="o">=</span>yes<span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="c1"># uncomment for a colored prompt, if the terminal has the capability; turned</span>
+<span class="c1"># off by default to not distract the user: the focus in a terminal window</span>
+<span class="c1"># should be on the output of commands, not on the prompt</span>
+<span class="nv">force_color_prompt</span><span class="o">=</span>yes
+
+<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$force_color_prompt</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="k">if</span> <span class="o">[</span> -x /usr/bin/tput <span class="o">]</span> <span class="o">&amp;&amp;</span> tput setaf <span class="m">1</span> &gt;<span class="p">&amp;</span>/dev/null<span class="p">;</span> <span class="k">then</span>
+    <span class="c1"># We have color support; assume it&#39;s compliant with Ecma-48</span>
+    <span class="c1"># (ISO/IEC-6429). (Lack of such support is extremely rare, and such</span>
+    <span class="c1"># a case would tend to support setf rather than setaf.)</span>
+    <span class="nv">color_prompt</span><span class="o">=</span>yes
+    <span class="k">else</span>
+    <span class="nv">color_prompt</span><span class="o">=</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="nb">alias</span> <span class="nv">cpu</span><span class="o">=</span><span class="s2">&quot;grep &#39;cpu &#39; /proc/stat | awk &#39;{usage=(\$2+\$4)*100/(\$2+\$4+\$5)} END {print usage}&#39; | awk &#39;{printf(\&quot;%.1f\n\&quot;, \$1)}&#39;&quot;</span>
+<span class="nb">alias</span> <span class="nv">ram</span><span class="o">=</span><span class="s2">&quot;free | grep Mem | awk &#39;{print \$3/\$2 * 100.0}&#39; | awk &#39;{printf(\&quot;%.1f\n\&quot;, \$1)}&#39;&quot;</span>
+<span class="nb">alias</span> <span class="nv">myip</span><span class="o">=</span><span class="s1">&#39;ip add | grep &quot;inet &quot; | grep -v &quot;127.0.0.1&quot; | cut -d&quot;/&quot; -f1 | cut -d &quot; &quot; -f 6 | tail -1&#39;</span>
+
+<span class="nb">alias</span> <span class="nv">mbsf</span><span class="o">=</span><span class="s2">&quot;sudo docker run -it -p 8000:8000 opensecurity/mobile-security-framework-mobsf&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$color_prompt</span><span class="s2">&quot;</span> <span class="o">=</span> yes <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+
+    <span class="nv">PROMPT</span><span class="o">=</span><span class="s1">$&#39;%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}(%B%F{%(#.red.blue)}Hades%(#.💀.㉿)%b$(myip)%F{%(#.blue.green)})-[$(cpu):$(ram)]%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} &#39;</span>
+
+    <span class="c1">#PROMPT=$&#39;%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}(%B%F{%(#.red.blue)}%n%(#.💀.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} &#39;</span>
+    <span class="nv">RPROMPT</span><span class="o">=</span><span class="s1">$&#39;%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)&#39;</span>
+
+    <span class="c1"># enable syntax-highlighting</span>
+    <span class="k">if</span> <span class="o">[</span> -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$color_prompt</span><span class="s2">&quot;</span> <span class="o">=</span> yes <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    <span class="nv">ZSH_HIGHLIGHT_HIGHLIGHTERS</span><span class="o">=(</span>main brackets pattern<span class="o">)</span>
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>default<span class="o">]=</span>none
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>unknown-token<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>red,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>reserved-word<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>cyan,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>suffix-alias<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>green,underline
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>global-alias<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>precommand<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>green,underline
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>commandseparator<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>blue,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>autodirectory<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>green,underline
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>path<span class="o">]=</span>underline
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>path_pathseparator<span class="o">]=</span>
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>path_prefix_pathseparator<span class="o">]=</span>
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>globbing<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>blue,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>history-expansion<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>blue,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>command-substitution<span class="o">]=</span>none
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>command-substitution-delimiter<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>process-substitution<span class="o">]=</span>none
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>process-substitution-delimiter<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>single-hyphen-option<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>double-hyphen-option<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>back-quoted-argument<span class="o">]=</span>none
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>back-quoted-argument-delimiter<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>blue,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>single-quoted-argument<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>yellow
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>double-quoted-argument<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>yellow
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>dollar-quoted-argument<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>yellow
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>rc-quote<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>dollar-double-quoted-argument<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>back-double-quoted-argument<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>back-dollar-quoted-argument<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>assign<span class="o">]=</span>none
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>redirection<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>blue,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>comment<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>black,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>named-fd<span class="o">]=</span>none
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>numeric-fd<span class="o">]=</span>none
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>arg0<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>green
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>bracket-error<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>red,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>bracket-level-1<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>blue,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>bracket-level-2<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>green,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>bracket-level-3<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>magenta,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>bracket-level-4<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>yellow,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>bracket-level-5<span class="o">]=</span><span class="nv">fg</span><span class="o">=</span>cyan,bold
+    ZSH_HIGHLIGHT_STYLES<span class="o">[</span>cursor-matchingbracket<span class="o">]=</span>standout
+    <span class="k">fi</span>
+<span class="k">else</span>
+    <span class="nv">PROMPT</span><span class="o">=</span><span class="s1">&#39;${debian_chroot:+($debian_chroot)}%n@%m:%~%# &#39;</span>
+<span class="k">fi</span>
+<span class="nb">unset</span> color_prompt force_color_prompt
+
+<span class="c1"># If this is an xterm set the title to user@host:dir</span>
+<span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$TERM</span><span class="s2">&quot;</span> <span class="k">in</span>
+xterm*<span class="p">|</span>rxvt*<span class="o">)</span>
+    <span class="nv">TERM_TITLE</span><span class="o">=</span><span class="s1">$&#39;\e]0;${debian_chroot:+($debian_chroot)}%n@%m: %~\a&#39;</span>
+    <span class="p">;;</span>
+*<span class="o">)</span>
+    <span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="nv">new_line_before_prompt</span><span class="o">=</span>yes
+precmd<span class="o">()</span> <span class="o">{</span>
+    <span class="c1"># Print the previously configured title</span>
+    print -Pnr -- <span class="s2">&quot;</span><span class="nv">$TERM_TITLE</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Print a new line before the prompt, but only if it is not the first line</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$new_line_before_prompt</span><span class="s2">&quot;</span> <span class="o">=</span> yes <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$_NEW_LINE_BEFORE_PROMPT</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nv">_NEW_LINE_BEFORE_PROMPT</span><span class="o">=</span><span class="m">1</span>
+    <span class="k">else</span>
+        print <span class="s2">&quot;&quot;</span>
+    <span class="k">fi</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># enable color support of ls, less and man, and also add handy aliases</span>
+<span class="k">if</span> <span class="o">[</span> -x /usr/bin/dircolors <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">test</span> -r ~/.dircolors <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>dircolors -b ~/.dircolors<span class="k">)</span><span class="s2">&quot;</span> <span class="o">||</span> <span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>dircolors -b<span class="k">)</span><span class="s2">&quot;</span>
+    <span class="nb">alias</span> <span class="nv">ls</span><span class="o">=</span><span class="s1">&#39;ls --color=auto&#39;</span>
+    <span class="c1">#alias dir=&#39;dir --color=auto&#39;</span>
+    <span class="c1">#alias vdir=&#39;vdir --color=auto&#39;</span>
+
+    <span class="nb">alias</span> <span class="nv">grep</span><span class="o">=</span><span class="s1">&#39;grep --color=auto&#39;</span>
+    <span class="nb">alias</span> <span class="nv">fgrep</span><span class="o">=</span><span class="s1">&#39;fgrep --color=auto&#39;</span>
+    <span class="nb">alias</span> <span class="nv">egrep</span><span class="o">=</span><span class="s1">&#39;egrep --color=auto&#39;</span>
+    <span class="nb">alias</span> <span class="nv">diff</span><span class="o">=</span><span class="s1">&#39;diff --color=auto&#39;</span>
+    <span class="nb">alias</span> <span class="nv">ip</span><span class="o">=</span><span class="s1">&#39;ip --color=auto&#39;</span>
+
+    <span class="nb">export</span> <span class="nv">LESS_TERMCAP_mb</span><span class="o">=</span><span class="s1">$&#39;\E[1;31m&#39;</span>     <span class="c1"># begin blink</span>
+    <span class="nb">export</span> <span class="nv">LESS_TERMCAP_md</span><span class="o">=</span><span class="s1">$&#39;\E[1;36m&#39;</span>     <span class="c1"># begin bold</span>
+    <span class="nb">export</span> <span class="nv">LESS_TERMCAP_me</span><span class="o">=</span><span class="s1">$&#39;\E[0m&#39;</span>        <span class="c1"># reset bold/blink</span>
+    <span class="nb">export</span> <span class="nv">LESS_TERMCAP_so</span><span class="o">=</span><span class="s1">$&#39;\E[01;33m&#39;</span>    <span class="c1"># begin reverse video</span>
+    <span class="nb">export</span> <span class="nv">LESS_TERMCAP_se</span><span class="o">=</span><span class="s1">$&#39;\E[0m&#39;</span>        <span class="c1"># reset reverse video</span>
+    <span class="nb">export</span> <span class="nv">LESS_TERMCAP_us</span><span class="o">=</span><span class="s1">$&#39;\E[1;32m&#39;</span>     <span class="c1"># begin underline</span>
+    <span class="nb">export</span> <span class="nv">LESS_TERMCAP_ue</span><span class="o">=</span><span class="s1">$&#39;\E[0m&#39;</span>        <span class="c1"># reset underline</span>
+
+    <span class="c1"># Take advantage of $LS_COLORS for completion as well</span>
+    zstyle <span class="s1">&#39;:completion:*&#39;</span> list-colors <span class="s2">&quot;</span><span class="si">${</span><span class="p">(s.:.)LS_COLORS</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># some more ls aliases</span>
+<span class="nb">alias</span> <span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -l&#39;</span>
+<span class="nb">alias</span> <span class="nv">la</span><span class="o">=</span><span class="s1">&#39;ls -A&#39;</span>
+<span class="nb">alias</span> <span class="nv">l</span><span class="o">=</span><span class="s1">&#39;ls -CF&#39;</span>
+
+<span class="c1"># enable auto-suggestions based on the history</span>
+<span class="k">if</span> <span class="o">[</span> -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    <span class="c1"># change suggestion color</span>
+    <span class="nv">ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE</span><span class="o">=</span><span class="s1">&#39;fg=#999&#39;</span>
+<span class="k">fi</span>
+</code></pre></div>
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="scripting.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Scripting" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Scripting
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../antivirus-evasion/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: Antivirus Evasion" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Antivirus Evasion
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 - 2021 LeeCyberSec
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.facebook.com/leecybersec" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/leecybersec" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/leecybersec" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/leecybersec" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.youtube.com/channel/UC_2YYw_h37UiMUaPv_tB5Rw" target="_blank" rel="noopener" title="www.youtube.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+      
+    
+  </body>
+</html>
